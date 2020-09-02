@@ -12,8 +12,6 @@ outfile = args.output
 with open(infile, 'r') as inpf:
     inpath  = inpf.readline()
     outpath = os.path.realpath(inpath)
-    if (outpath[-2] == '/'): # Ends with a trailing backslash
-        outpath = outpath[:-2]
     with open(outfile, 'w') as outf:
         outf.write(outpath)
 
