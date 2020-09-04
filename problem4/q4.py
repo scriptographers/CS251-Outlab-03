@@ -42,7 +42,12 @@ def allTrees(n):
     """
     Returns a list of all unique trees with n internal nodes
     """
+    if n == 0:
+        return [Node()]
+
     trees = []
+    for l_count in range(0, n):
+        trees += [Node(x, y) for x in allTrees(l_count) for y in allTrees(n - 1 - l_count)]
     return trees
 
 
