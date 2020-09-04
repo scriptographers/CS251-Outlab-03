@@ -31,7 +31,11 @@ def mirrorTree(node):
     """
     Returns the mirror image of the tree rooted at node
     """
-    pass
+    if node == Node():
+        mirror_node = Node()
+    else:
+        mirror_node = Node(mirrorTree(node.right), mirrorTree(node.left))
+    return mirror_node
 
 
 def allTrees(n):
@@ -49,7 +53,8 @@ def allSymTrees(n):
 
 
 if __name__ == '__main__':
-    for x in allSymTrees(int(input())):
-        print(x)
-    node = Node(Node(Node(), Node()), Node())
+    # for x in allSymTrees(int(input())):
+    #     print(x)
+    node = Node(Node(Node(), Node(Node(), Node())), Node())
     print(node)
+    print(mirrorTree(node))
