@@ -42,14 +42,18 @@ def allTrees(n):
     """
     Returns a list of all unique trees with n internal nodes
     """
-    pass
+    trees = []
+    return trees
 
 
 def allSymTrees(n):
     """
     Returns a list of all unique symmetrical trees with n internal nodes
     """
-    pass
+    if n % 2:
+        return [Node(sub_tree, sub_tree) for sub_tree in allTrees(n // 2)]
+    else:
+        return []
 
 
 if __name__ == '__main__':
