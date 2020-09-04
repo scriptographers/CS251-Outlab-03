@@ -1,14 +1,6 @@
 # Enter your code here
 
-# def collapse(L):
-#     if isinstance(L, list) and L:
-#         return ' '.join([collapse(L.pop()), collapse(L)])
-#     else:
-#         return L
-
-# collapse = lambda l: ' '.join([collapse(l.()),]) if isinstance(l, list) else l
-# collapse = lambda l: ' '.join(reversed([collapse(l.pop()), collapse(l)])) if (isinstance(l, list) and l) else '' if isinstance(l, list) else l
-
+################ Without using List comprehension but using def ################
 # def collapse(l):
 #     if isinstance(l, list) and l:
 #         return " ".join((collapse(l[:-1]) + ' ' + collapse(l.pop())).split())
@@ -16,8 +8,25 @@
 #         return ''
 #     else:
 #         return l
+################################################################################
 
-collapse = lambda l: " ".join((collapse(l[:-1]) + ' ' + collapse(l.pop())).split()) if (isinstance(l, list) and l) else '' if l == [] else l
+############## Without using List comprehension and using lambda ###############
+# collapse = lambda l: " ".join((collapse(l[:-1]) + ' ' + collapse(l.pop())).split()) if (isinstance(l, list) and l) else '' if l == [] else l
+################################################################################
 
-x = [["ab"], ["ac", ["ad", ["ae"]]], ["af"]]
-print(collapse(x))
+#################### Using List comprehension but using def ####################
+# def collapse(L):
+#     if isinstance(L, list) and L:
+#         return ' '.join([collapse(elem) for elem in L])
+#     else:
+#         return L
+################################################################################
+
+################### Using List comprehension and using lambda ##################
+collapse = lambda l: " ".join([collapse(elem) for elem in l]) if (isinstance(l, list) and l) else '' if l == [] else l
+################################################################################
+
+
+# Tests
+# x = [["ab"], ["ac", ["ad", ["ae"]]], ["af"]]
+# print(collapse(x))
