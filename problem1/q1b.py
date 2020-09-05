@@ -31,14 +31,20 @@ def check_code(code):
     sum_a = 0
     for i in range(len(a)):
         if isInt(a[i]):
-            sum_a += (i+1)*int(a[i])
+            if ((int(a[i]) < n) and (int(a[i]) >= 0)):
+                sum_a += (i+1)*int(a[i])
+            else:
+                return False
         else:
             return False
 
     sum_b = 0
     for i in range(len(b)):
         if isInt(b[i]):
-            sum_b += (i+1)*int(b[i])
+            if ((int(b[i]) < n) and (int(b[i]) >= 0)):
+                sum_b += (i+1)*int(b[i])
+            else:
+                return False
         else:
             return False
 
@@ -49,7 +55,7 @@ def check_code(code):
 
 extract_code = re.compile(r"\$\((?:[0-9]+)(?:,[0-9]+)+\)\#\((?:[0-9]+)(?:,[0-9]+)+\)\$")
 matches = extract_code.findall(message)
-print(matches)
+# print(matches)
 is_corrupt = False
 for match in matches:
     if not check_code(match):
