@@ -55,8 +55,10 @@ def allSymTrees(n):
     """
     Returns a list of all unique symmetrical trees with n internal nodes
     """
-    if n % 2:
-        return [Node(sub_tree, sub_tree) for sub_tree in allTrees(n // 2)]
+    if n == 0:
+        return [Node()]
+    elif n % 2:
+        return [Node(sub_tree, mirrorTree(sub_tree)) for sub_tree in allTrees(n // 2)]
     else:
         return []
 
