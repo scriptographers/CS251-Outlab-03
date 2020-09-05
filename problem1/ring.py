@@ -34,7 +34,7 @@ class RingInt(object):
         if self.characteristic != other.characteristic:
             raise ValueError("Characteristics don't match")
         elif other.inverse():
-            new_value = (self.value * other.inverse) % self.characteristic
+            new_value = (self.value * other.inverse()) % self.characteristic
             return RingInt(new_value, self.characteristic)
         else:
             raise ValueError("Division of {} undefined".format(other))
@@ -49,7 +49,7 @@ class RingInt(object):
                 y = (y * x) % self.characteristic
             power = power // 2
             x = (x * x) % self.characteristic
-        return y
+        return RingInt(y, self.characteristic)
 
     def __eq__(self, other):
         if self.characteristic != other.characteristic:
@@ -81,8 +81,9 @@ class RingInt(object):
             return last_x + self.characteristic
         return last_x
 
-
-if __name__ == '__main__':
-    a = RingInt(5, 7)
-    b = RingInt(5, 6)
-    print(a, b, a == b)
+# if __name__ == '__main__':
+#     a = RingInt(5, 7)
+#     b = RingInt(6, 7)
+#     c = a/b
+#     print(c)
+    
