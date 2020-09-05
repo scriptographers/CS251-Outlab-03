@@ -29,7 +29,23 @@ class RingInt(object):
             new_value = (self.value*other.value)%self.characteristic
             return RingInt(new_value, self.characteristic)
 
+    def __truediv__(self, other):
+        if (self.characteristic != other.characteristic):
+            raise ValueError("Characteristics don't match")
+        # complete this
+
+    def __pow__(self, power):
+        # complete this
+
+    def __eq__(self, other):
+        if (self.characteristic != other.characteristic):
+            raise ValueError("Characteristics don't match")
+        else:
+            if (self.value == other.value):
+                return True
+            else:
+                return False
 
 a = RingInt(5,7)
-b = RingInt(4,7)
-print(a, b, a-b*a)
+b = RingInt(5,6)
+print(a, b, a==b)
