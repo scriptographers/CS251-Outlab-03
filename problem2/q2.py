@@ -2,7 +2,7 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--input",  "-in", type=str, required=True)
+parser.add_argument("--input",  "-inp", type=str, required=True)
 parser.add_argument("--output", "-out", type=str, required=True)
 
 args = parser.parse_args()
@@ -14,4 +14,3 @@ with open(infile, 'r') as inpf:
     outpath = os.path.realpath(inpath)
     with open(outfile, 'w') as outf:
         outf.write(outpath)
-
