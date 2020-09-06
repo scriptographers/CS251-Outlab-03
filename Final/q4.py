@@ -68,22 +68,3 @@ if __name__ == '__main__':
         print(x)
     node = Node(Node(Node(), Node()), Node())
     print(node)
-
-# if __name__ == '__main__':
-#     for i in range(0, 12):
-#         count = 0
-#         for x in allTrees(i):
-#             count += 1
-#             # print(x)
-#         print(i, count)
-
-#     for i in range(0, 24):
-#         count = 0
-#         for x in allSymTrees(i):
-#             count += 1
-#             # print(x == mirrorTree(x))
-#         print(i, count)
-
-#     node = Node(Node(Node(), Node(Node(), Node())), Node())
-#     print(node)
-#     print(mirrorTree(node))

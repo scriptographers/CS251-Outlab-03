@@ -11,5 +11,8 @@ https://www.geeksforgeeks.org/python-regex-re-search-vs-re-findall/
 https://regexr.com/
 https://docs.python.org/3/library/re.html
 
+Extended Euclidean Algorithm:
+Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Introduction to Algorithms - Page 937
+
 Misc:
 https://www.geeksforgeeks.org/python-os-path-realpath-method/
