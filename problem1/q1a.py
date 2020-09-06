@@ -2,7 +2,7 @@ import argparse
 from ring import *
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--input",  "-in", type=str, required=True)
+parser.add_argument("--input",  "-inp", type=str, required=True)
 parser.add_argument("--output", "-out", type=str, required=True)
 
 args = parser.parse_args()
