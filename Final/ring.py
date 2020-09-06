@@ -47,6 +47,8 @@ class RingInt(object):
                 return RingInt(inv, self.characteristic) ** (-1 * power)
             else:
                 raise ValueError("Negative Powers of {} undefined".format(self))
+        if power == 0:
+            return RingInt(1, self.characteristic)
         if self.value == 0:
             return RingInt(0, self.characteristic)
         x = self.value
