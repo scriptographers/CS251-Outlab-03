@@ -1,16 +1,10 @@
-# Enter your code here
-
 def rotate(m):
-    temp = []
-    for i in range(0, len(m), 1):
-        temp.append([m[j][i] for j in range(len(m) - 1, -1, -1)])
+    temp = [[m[j][i] for j in range(len(m) - 1, -1, -1)] for i in range(0, len(m), 1)]
     return temp
-
 
 def print_mat(m):
     for row in m:
         print(' '.join(row))
-
 
 if __name__ == '__main__':
     sq_mat = []
