@@ -1,5 +1,3 @@
-# Enter your code here
-
 #################### Using List comprehension but using def ####################
 # def collapse(L):
 #     if isinstance(L, list) and L:
@@ -29,6 +27,6 @@ collapse = lambda l: ' '.join((collapse(l[:-1]) + ' ' + collapse(l.pop())).split
 
 # Tests
 x = [["ab"], ["ac", ["ad", ["ae", "aas"]]], ["af"]]
-y = [[[[[['']]]]]]
+y = [[[[[['b', '', 'a']]], ['asd']]]]
 print(collapse(x))
 print(collapse(y))
