@@ -33,13 +33,20 @@ class RingInt(object):
     def __truediv__(self, other):
         if self.characteristic != other.characteristic:
             raise ValueError("Characteristics don't match")
-        elif other.inverse():
-            new_value = (self.value * other.inverse()) % self.characteristic
+        oth_inv = other.inverse()
+        if oth_inv:
+            new_value = (self.value * oth_inv) % self.characteristic
             return RingInt(new_value, self.characteristic)
         else:
             raise ValueError("Division of {} undefined".format(other))
 
     def __pow__(self, power):
+        if power < 0:
+            inv = self.inverse()
+            if inv:
+                return RingInt(inv, self.characteristic) ** (-1 * power)
+            else:
+                raise ValueError("Negative Powers of {} undefined".format(self))
         if self.value == 0:
             return 0
         x = self.value
@@ -81,9 +88,9 @@ class RingInt(object):
             return last_x + self.characteristic
         return last_x
 
-# if __name__ == '__main__':
-#     a = RingInt(5, 7)
-#     b = RingInt(6, 7)
-#     c = a/b
-#     print(c)
-    
+
+if __name__ == '__main__':
+    a = RingInt(5, 7)
+    b = RingInt(6, 7)
+    c = a ** -1
+    print(c)
