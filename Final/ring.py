@@ -48,7 +48,7 @@ class RingInt(object):
             else:
                 raise ValueError("Negative Powers of {} undefined".format(self))
         if self.value == 0:
-            return 0
+            return RingInt(0, self.characteristic)
         x = self.value
         y = 1
         while power:
@@ -87,10 +87,3 @@ class RingInt(object):
         if last_x < 0:
             return last_x + self.characteristic
         return last_x
-
-
-if __name__ == '__main__':
-    a = RingInt(5, 7)
-    b = RingInt(6, 7)
-    c = a ** -1
-    print(c)
