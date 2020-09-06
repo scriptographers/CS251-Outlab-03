@@ -11,6 +11,10 @@ https://www.geeksforgeeks.org/python-regex-re-search-vs-re-findall/
 https://regexr.com/
 https://docs.python.org/3/library/re.html
 
+Collections:
+https://stackabuse.com/introduction-to-pythons-collections-module/
+https://docs.python.org/3.7/library/collections.html#collections.Counter
+
 Extended Euclidean Algorithm:
 Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein - Introduction to Algorithms - Page 937
 
