@@ -1,0 +1,15 @@
+Classes, Iterators & Exceptions:
+https://www.geeksforgeeks.org/iterators-in-python/
+https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-int
+https://www.w3schools.com/python/python_try_except.asp
+https://docs.python.org/3/library/exceptions.html
+https://www.programiz.com/python-programming/operator-overloading
+
+RegEx:
+https://stackoverflow.com/questions/56155756/why-re-findall-behaves-weird-way-as-compared-with-re-search
+https://www.geeksforgeeks.org/python-regex-re-search-vs-re-findall/
+https://regexr.com/
+https://docs.python.org/3/library/re.html
+
+Misc:
+https://www.geeksforgeeks.org/python-os-path-realpath-method/
