@@ -13,7 +13,7 @@ with open(cafile, 'r') as f:
     m = int(f.readline().split()[0])  # no. of candies
     candies = f.readline().split()  # list of candies
     candies = list(map(int, candies))  # convert all to int
-    candies = Counter(list(map(int, candies)))  # Made a counter
+    candies = Counter(candies)  # Made a counter
 
 with open(chfile, 'r') as f:
     n = int(f.readline().split()[0])
