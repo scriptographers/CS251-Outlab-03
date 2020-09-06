@@ -1,3 +1,4 @@
+from collections import Counter, defaultdict
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -12,17 +13,19 @@ with open(cafile, 'r') as f:
     m = int(f.readline().split()[0])  # no. of candies
     candies = f.readline().split()  # list of candies
     candies = list(map(int, candies))  # convert all to int
+    candies = Counter(list(map(int, candies)))  # Made a counter
 
 with open(chfile, 'r') as f:
     n = int(f.readline().split()[0])
     capr = [list(map(int, f.readline().split())) for _ in range(n)]  # contains candy,price pairs
-
-capr.sort(key=lambda x: x[1], reverse=True)  # sort according to the price offered
+    capr_ = defaultdict(list)
+    for k, v in capr:
+        capr_[k].append(v)
 
 amount = 0
-for c in capr:
-    if c[0] in candies:
-        amount += c[1]
-        candies.remove(c[0])  # sold!
+for c, cnt in candies.items():
+    capr_[c].sort(reverse=True)
+    for i in range(0, min(cnt, len(capr_[c]))):
+        amount += capr_[c][i]
 
 print(amount)
