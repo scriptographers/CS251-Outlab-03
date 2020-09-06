@@ -21,7 +21,7 @@ class Node(object):
     def __eq__(self, other):
         if self.left is None and self.right is None:
             return other.left is None and other.right is None
-        elif self.left is None and self.right is None:
+        elif other.left is None and other.right is None:
             return False
         else:
             return self.left == other.left and self.right == other.right
@@ -31,25 +31,53 @@ def mirrorTree(node):
     """
     Returns the mirror image of the tree rooted at node
     """
-    pass
+    if node == Node():
+        mirror_node = Node()
+    else:
+        mirror_node = Node(mirrorTree(node.right), mirrorTree(node.left))
+    return mirror_node
 
 
 def allTrees(n):
     """
     Returns a list of all unique trees with n internal nodes
     """
-    pass
+    if n == 0:
+        return [Node()]
+
+    trees = []
+    for l_count in range(0, n):
+        trees += [Node(x, y) for x in allTrees(l_count) for y in allTrees(n - 1 - l_count)]
+    return trees
 
 
 def allSymTrees(n):
     """
     Returns a list of all unique symmetrical trees with n internal nodes
     """
-    pass
+    if n == 0:
+        return [Node()]
+    elif n % 2:
+        return [Node(sub_tree, mirrorTree(sub_tree)) for sub_tree in allTrees(n // 2)]
+    else:
+        return []
 
 
 if __name__ == '__main__':
-    for x in allSymTrees(int(input())):
-        print(x)
-    node = Node(Node(Node(), Node()), Node())
+    # for i in range(0, 12):
+    #     count = 0
+    #     for x in allTrees(i):
+    #         count += 1
+    #         # print(x)
+    #     print(i, count)
+
+    # for i in range(0, 24):
+    #     count = 0
+    #     for x in allSymTrees(i):
+    #         count += 1
+    #         # print(x == mirrorTree(x))
+    #     print(i, count)
+
+    node = Node(Node(Node(), Node(Node(), Node())), Node())
     print(node)
+    print(mirrorTree(node))
