@@ -16,11 +16,13 @@ class Series:
     def __next__(self):
         if self.I.value >= self.k:
             raise StopIteration
-        else:
+        elif self.I.value == 0:
             self.I.value += 1
-            P = self.N  # P stands for previous
+            return self.N
+        else:
             self.N *= (self.X / self.I)
-            return P
+            self.I.value += 1
+            return self.N
 
 
 if __name__ == "__main__":
